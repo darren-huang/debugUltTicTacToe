@@ -53,7 +53,7 @@ public class Model {
         return validPosition && posNotOccupied;
     }
 
-    // check if the latest move (given by "move") causes a win
+    // check if the latest move (given by "move") causes a win || assumes win == false
     private void checkWin(Pos move) {
         int player = boardGet(move);
         for (Pos dir: dirs) {
@@ -71,8 +71,8 @@ public class Model {
             if (streakCount >= this.n) {
                 this.win = true;
                 this.winner = player;
-                this.winningEndpoints = new Pos[]{new Pos(1, 2)};
-
+                this.winningEndpoints = new Pos[]{pointer1.addWith(dir.mulWith(-1)), pointer2.addWith(dir)};
+                return;
             }
         }
 
@@ -100,11 +100,17 @@ public class Model {
         boardSet(move, player);
 
         // check for win
+        checkWin(move);
+
         return win;
     }
 
+    public String displayWinString() {
+        String winString = "";
+    }
+
     // Prints out the board
-    public String displayString() {
+    public String displayBoardString() {
         String boardString = "";
 
         //construct top and bottom border
@@ -134,6 +140,6 @@ public class Model {
 
     public static void main(String[] args) {
         Model m = new Model(10, 5, 4);
-        System.out.println(m.displayString());
+        System.out.println(m.displayBoardString());
     }
 }
