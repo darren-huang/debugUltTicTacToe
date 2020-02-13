@@ -20,6 +20,10 @@ public class Model {
         public Pos mulWith(int i) {
             return new Pos(this.x * i, this.y * i);
         }
+
+        public String toString(){
+            return "(" + x + ", " + y + ")";
+        }
     }
 
     private int width, height; //the board will be width x height in dimensions
@@ -106,7 +110,18 @@ public class Model {
     }
 
     public String displayWinString() {
-        String winString = "";
+        if (win) {
+            return "ERROR: there is no winner atm";
+        }
+        String winString = "Player";
+        if (winner == Model.O) {
+            winString += " O";
+        } else {
+            winString += " X";
+        }
+        winString += " has won!\n The winning line is from";
+
+
     }
 
     // Prints out the board
