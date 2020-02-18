@@ -1,8 +1,8 @@
-package TicTacToe;
+package UltTicTacToe;
 
 import java.util.Objects;
 
-public class Model {
+public class TicTacToeBoard {
     public static final int X = 1;
     public static final int O = 2;
 
@@ -52,7 +52,7 @@ public class Model {
     private int winner;
     private Pos[] winningEndpoints = new Pos[2];
 
-    public Model(int width, int height, int n) {
+    public TicTacToeBoard(int width, int height, int n) {
         this.width = width;
         this.height = height;
         this.n = n;
@@ -153,7 +153,7 @@ public class Model {
         }
 
         // check valid player
-        if (player != Model.X && player != Model.O) {
+        if (player != TicTacToeBoard.X && player != TicTacToeBoard.O) {
             throw new RuntimeException("player is invalid");
         }
 
@@ -181,7 +181,7 @@ public class Model {
             return "ERROR: there is no winner atm";
         }
         String winString = "Player";
-        if (winner == Model.O) {
+        if (winner == TicTacToeBoard.O) {
             winString += " O";
         } else {
             winString += " X";
@@ -212,9 +212,9 @@ public class Model {
             boardString += y + " | ";
             for (int x=0; x < width; x++) {
                 int val = boardGet(x, y);
-                if (val == Model.X) {
+                if (val == TicTacToeBoard.X) {
                     boardString += " X ";
-                } else if (val == Model.O) {
+                } else if (val == TicTacToeBoard.O) {
                     boardString += " O ";
                 } else {
                     boardString += " - ";
@@ -226,12 +226,12 @@ public class Model {
     }
 
     public static void main(String[] args) {
-        Model m = new Model(10, 10, 4);
-        m.boardSet(0, 0, Model.X);
-        m.boardSet(1, 0, Model.X);
-        m.boardSet(2, 0, Model.X);
-        m.boardSet(3, 0, Model.X);
-        m.boardSet(4, 0, Model.X);
+        TicTacToeBoard m = new TicTacToeBoard(10, 10, 4);
+        m.boardSet(0, 0, TicTacToeBoard.X);
+        m.boardSet(1, 0, TicTacToeBoard.X);
+        m.boardSet(2, 0, TicTacToeBoard.X);
+        m.boardSet(3, 0, TicTacToeBoard.X);
+        m.boardSet(4, 0, TicTacToeBoard.X);
         System.out.println(m.checkWin(new Pos(4,0)));
 
         System.out.println(m.displayBoardString());
