@@ -1,7 +1,5 @@
 package TicTacToe;
 
-import com.sun.tools.internal.xjc.reader.RawTypeSet;
-
 import java.util.Objects;
 
 public class Model {
@@ -49,6 +47,7 @@ public class Model {
     private int width, height; //the board will be width x height in dimensions
     private int n; //to win you must get 'n' symbols in a row/column/diagonal
     private int[][] board; //holds the contents of the board
+    private int num_pieces;
     private boolean win;
     private int winner;
     private Pos[] winningEndpoints = new Pos[2];
@@ -60,6 +59,7 @@ public class Model {
         this.board = new int[height][width];
         this.win = false;
         this.winner = 0;
+        this.num_pieces = 0;
     }
 
     int boardGet(int x, int y){
@@ -104,6 +104,10 @@ public class Model {
 
     public int getWinner() {
         return winner;
+    }
+
+    public boolean isFilled() {
+        return width * height == num_pieces;
     }
 
     // check if the latest move (given by "move") causes a win || assumes win == false
@@ -164,11 +168,16 @@ public class Model {
         // check for win
         checkWin(move);
 
+        num_pieces += 1;
+
         return win;
     }
 
     public String displayWinString() {
         if (!win) {
+            if (isFilled()) {
+                return "it's a Tie!";
+            }
             return "ERROR: there is no winner atm";
         }
         String winString = "Player";
@@ -189,14 +198,17 @@ public class Model {
         String boardString = "";
 
         //construct top and bottom border
-        String border = "  * ";
+        String botBorder = "  * ";
+        String topBorder = "  * ";
         for (int i = 0; i < width; i ++) {
-            border += "-" + i + "-";
+            botBorder += "-" + i + "-";
+            topBorder += "---";
         }
-        border += " * \n";
+        topBorder += " * \n";
+        botBorder += " * \n";
 
         // visualize board
-        for (int y=0; y < height; y++) {
+        for (int y=height - 1; y >= 0; y--) {
             boardString += y + " | ";
             for (int x=0; x < width; x++) {
                 int val = boardGet(x, y);
@@ -210,11 +222,11 @@ public class Model {
             }
             boardString += " | \n";
         }
-        return border + boardString + border;
+        return topBorder + boardString + botBorder;
     }
 
     public static void main(String[] args) {
-        Model m = new Model(10, 5, 4);
+        Model m = new Model(10, 10, 4);
         m.boardSet(0, 0, Model.X);
         m.boardSet(1, 0, Model.X);
         m.boardSet(2, 0, Model.X);

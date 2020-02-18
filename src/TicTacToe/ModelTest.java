@@ -169,5 +169,44 @@ public class ModelTest {
         System.out.println(m.displayBoardString());
         Assert.assertTrue(m.makeMove(Model.X, 2, 2));
         System.out.println(m.displayBoardString());
+        try {
+            m.makeMove(Model.X, 1, 1);
+            Assert.fail();
+        } catch (RuntimeException e) {
+
+        }
+    }
+
+    @Test
+    public void isFilled() {
+        Model m = new Model(3, 3, 3);
+        Assert.assertFalse(m.makeMove(Model.X, 1, 1));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.O, 1, 0));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.X, 2, 1));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.O, 0, 1));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.X, 2, 0));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.O, 0, 2));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.X, 1, 2));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.O, 2, 2));
+        Assert.assertFalse(m.isFilled());
+        System.out.println(m.displayBoardString());
+        Assert.assertFalse(m.makeMove(Model.X, 0, 0));
+        Assert.assertTrue(m.isFilled());
+        System.out.println(m.displayBoardString());
+
     }
 }
