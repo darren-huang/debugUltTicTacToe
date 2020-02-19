@@ -1,48 +1,11 @@
 package UltTicTacToe;
 
-import java.util.Objects;
-
 public class TicTacToeBoard {
     public static final int X = 1;
     public static final int O = 2;
 
     // used for checking winning directions
     public static final Pos[] dirs = {new Pos(1, 0), new Pos(1, 1), new Pos(0, 1), new Pos(1, -1)};
-
-    public static class Pos {
-        public int x,y;
-
-        public Pos(int x, int y) {
-            this.x = x; // moves along x-axis, origin is top-left
-            this.y = y; // moves along y-axis, origin is top-left
-        }
-
-        public Pos addWith(Pos other) {
-            return new Pos(this.x + other.x, this.y + other.y);
-        }
-
-        public Pos mulWith(int i) {
-            return new Pos(this.x * i, this.y * i);
-        }
-
-        public String toString(){
-            return "(" + x + ", " + y + ")";
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Pos pos = (Pos) o;
-            return x == pos.x &&
-                    y == pos.y;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(x, y);
-        }
-    }
 
     private int width, height; //the board will be width x height in dimensions
     private int n; //to win you must get 'n' symbols in a row/column/diagonal
@@ -146,6 +109,7 @@ public class TicTacToeBoard {
 
     // makes a move for a given player (player is either TicTacToe.Model.X or TicTacToe.Model.O)
     // returns whether or not that player won
+    // ** UPDATE: if a player has already won, no longer will "checkWin" but still place piece
     public boolean makeMove(int player, Pos move) {
         // check valid move
         if (!validMove(move)) {
@@ -157,16 +121,18 @@ public class TicTacToeBoard {
             throw new RuntimeException("player is invalid");
         }
 
-        // check game isn't over
-        if (win) {
-            throw new RuntimeException("game is over");
-        }
+//        // check game isn't over // see UPDATE
+//        if (win) {
+//            throw new RuntimeException("game is over");
+//        }
 
         // make move
         boardSet(move, player);
 
-        // check for win
-        checkWin(move);
+        if (!win) {
+            // check for win
+            checkWin(move);
+        }
 
         num_pieces += 1;
 

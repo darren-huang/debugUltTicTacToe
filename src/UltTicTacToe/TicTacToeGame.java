@@ -27,7 +27,7 @@ public class TicTacToeGame {
             Matcher mat = p.matcher(input);
 
             if (mat.matches()) { // parse user input with Regex
-                TicTacToeBoard.Pos move = new TicTacToeBoard.Pos(Integer.parseInt(mat.group(1)), Integer.parseInt(mat.group(2)));
+                Pos move = new Pos(Integer.parseInt(mat.group(1)), Integer.parseInt(mat.group(2)));
 
                 if (m.validMove(move)) { // check move validity, if so make move
                     if (isPlayerX) {
@@ -49,6 +49,6 @@ public class TicTacToeGame {
     }
 
     public static void main(String[] args) throws IOException {
-        TicTacToeGame.interactiveGame(2, 2, 3);
+        TicTacToeGame.interactiveGame(3, 3, 3);
     }
 }

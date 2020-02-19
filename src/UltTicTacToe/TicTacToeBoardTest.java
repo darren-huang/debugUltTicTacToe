@@ -11,14 +11,14 @@ public class TicTacToeBoardTest {
         int player1 = 1;
 
         // check 1
-        TicTacToeBoard.Pos pos = new TicTacToeBoard.Pos(0, 0);
+        Pos pos = new Pos(0, 0);
         Assert.assertTrue(m.boardGet(pos) == 0);
         m.boardSet(pos, player1);
         Assert.assertTrue(m.boardGet(pos) == player1);
 
         // check 2
         int player2 = 2;
-        pos = new TicTacToeBoard.Pos(2, 2);
+        pos = new Pos(2, 2);
         Assert.assertTrue(m.boardGet(pos) == 0);
         m.boardSet(pos, player2);
         Assert.assertTrue(m.boardGet(pos) == player2);
@@ -32,16 +32,16 @@ public class TicTacToeBoardTest {
         TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
         // 1. is a valid place on the board
         // corners True (0 index)
-        Assert.assertTrue(m.validPos(new TicTacToeBoard.Pos(0, 0)));
-        Assert.assertTrue(m.validPos(new TicTacToeBoard.Pos(2, 0)));
-        Assert.assertTrue(m.validPos(new TicTacToeBoard.Pos(0, 2)));
-        Assert.assertTrue(m.validPos(new TicTacToeBoard.Pos(2, 2)));
+        Assert.assertTrue(m.validPos(new Pos(0, 0)));
+        Assert.assertTrue(m.validPos(new Pos(2, 0)));
+        Assert.assertTrue(m.validPos(new Pos(0, 2)));
+        Assert.assertTrue(m.validPos(new Pos(2, 2)));
 
         // invalid, N/E/S/W
-        Assert.assertFalse(m.validPos(new TicTacToeBoard.Pos(1, -1)));
-        Assert.assertFalse(m.validPos(new TicTacToeBoard.Pos(3, 1)));
-        Assert.assertFalse(m.validPos(new TicTacToeBoard.Pos(1, 3)));
-        Assert.assertFalse(m.validPos(new TicTacToeBoard.Pos(-1, 1)));
+        Assert.assertFalse(m.validPos(new Pos(1, -1)));
+        Assert.assertFalse(m.validPos(new Pos(3, 1)));
+        Assert.assertFalse(m.validPos(new Pos(1, 3)));
+        Assert.assertFalse(m.validPos(new Pos(-1, 1)));
     }
 
     @Test
@@ -49,26 +49,26 @@ public class TicTacToeBoardTest {
         TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
         // 1. is a valid place on the board
         // corners True (0 index)
-        Assert.assertTrue(m.validMove(new TicTacToeBoard.Pos(0, 0)));
-        Assert.assertTrue(m.validMove(new TicTacToeBoard.Pos(2, 0)));
-        Assert.assertTrue(m.validMove(new TicTacToeBoard.Pos(0, 2)));
-        Assert.assertTrue(m.validMove(new TicTacToeBoard.Pos(2, 2)));
+        Assert.assertTrue(m.validMove(new Pos(0, 0)));
+        Assert.assertTrue(m.validMove(new Pos(2, 0)));
+        Assert.assertTrue(m.validMove(new Pos(0, 2)));
+        Assert.assertTrue(m.validMove(new Pos(2, 2)));
 
         // invalid, N/E/S/W
-        Assert.assertFalse(m.validMove(new TicTacToeBoard.Pos(1, -1)));
-        Assert.assertFalse(m.validMove(new TicTacToeBoard.Pos(3, 1)));
-        Assert.assertFalse(m.validMove(new TicTacToeBoard.Pos(1, 3)));
-        Assert.assertFalse(m.validMove(new TicTacToeBoard.Pos(-1, 1)));
+        Assert.assertFalse(m.validMove(new Pos(1, -1)));
+        Assert.assertFalse(m.validMove(new Pos(3, 1)));
+        Assert.assertFalse(m.validMove(new Pos(1, 3)));
+        Assert.assertFalse(m.validMove(new Pos(-1, 1)));
 
         // 2. isn't occupied
         m.boardSet(0, 0, 1);
         m.boardSet(2, 0, 1);
 
         // corners again
-        Assert.assertFalse(m.validMove(new TicTacToeBoard.Pos(0, 0)));
-        Assert.assertFalse(m.validMove(new TicTacToeBoard.Pos(2, 0)));
-        Assert.assertTrue(m.validMove(new TicTacToeBoard.Pos(0, 2)));
-        Assert.assertTrue(m.validMove(new TicTacToeBoard.Pos(2, 2)));
+        Assert.assertFalse(m.validMove(new Pos(0, 0)));
+        Assert.assertFalse(m.validMove(new Pos(2, 0)));
+        Assert.assertTrue(m.validMove(new Pos(0, 2)));
+        Assert.assertTrue(m.validMove(new Pos(2, 2)));
     }
 
     @Test
@@ -78,17 +78,17 @@ public class TicTacToeBoardTest {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
             m.boardSet(0, 0, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(0, 0))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(0, 0))); // no win
             m.boardSet(1, 0, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(1, 0))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(1, 0))); // no win
             m.boardSet(2, 0, player1);
-            Assert.assertTrue(m.checkWin(new TicTacToeBoard.Pos(i, 0)));
+            Assert.assertTrue(m.checkWin(new Pos(i, 0)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
             // end points check
-            TicTacToeBoard.Pos[] endPts = m.getWinningEndpoints();
-            TicTacToeBoard.Pos left = new TicTacToeBoard.Pos(0,0);
-            TicTacToeBoard.Pos right = new TicTacToeBoard.Pos(2,0);
+            Pos[] endPts = m.getWinningEndpoints();
+            Pos left = new Pos(0,0);
+            Pos right = new Pos(2,0);
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
@@ -97,17 +97,17 @@ public class TicTacToeBoardTest {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
             m.boardSet(0, 0, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(0, 0))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(0, 0))); // no win
             m.boardSet(0, 1, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(0, 1))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(0, 1))); // no win
             m.boardSet(0, 2, player1);
-            Assert.assertTrue(m.checkWin(new TicTacToeBoard.Pos(0, i)));
+            Assert.assertTrue(m.checkWin(new Pos(0, i)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
             // end points check
-            TicTacToeBoard.Pos[] endPts = m.getWinningEndpoints();
-            TicTacToeBoard.Pos left = new TicTacToeBoard.Pos(0,0);
-            TicTacToeBoard.Pos right = new TicTacToeBoard.Pos(0,2);
+            Pos[] endPts = m.getWinningEndpoints();
+            Pos left = new Pos(0,0);
+            Pos right = new Pos(0,2);
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
@@ -116,17 +116,17 @@ public class TicTacToeBoardTest {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
             m.boardSet(0, 0, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(0, 0))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(0, 0))); // no win
             m.boardSet(1, 1, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(1, 1))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(1, 1))); // no win
             m.boardSet(2, 2, player1);
-            Assert.assertTrue(m.checkWin(new TicTacToeBoard.Pos(i, i)));
+            Assert.assertTrue(m.checkWin(new Pos(i, i)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
             // end points check
-            TicTacToeBoard.Pos[] endPts = m.getWinningEndpoints();
-            TicTacToeBoard.Pos left = new TicTacToeBoard.Pos(0,0);
-            TicTacToeBoard.Pos right = new TicTacToeBoard.Pos(2,2);
+            Pos[] endPts = m.getWinningEndpoints();
+            Pos left = new Pos(0,0);
+            Pos right = new Pos(2,2);
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
@@ -135,21 +135,22 @@ public class TicTacToeBoardTest {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
             m.boardSet(2, 0, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(2, 0))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(2, 0))); // no win
             m.boardSet(1, 1, player1);
-            Assert.assertFalse(m.checkWin(new TicTacToeBoard.Pos(1, 1))); // no win
+            Assert.assertFalse(m.checkWin(new Pos(1, 1))); // no win
             m.boardSet(0, 2, player1);
-            Assert.assertTrue(m.checkWin(new TicTacToeBoard.Pos(2 - i, i)));
+            Assert.assertTrue(m.checkWin(new Pos(2 - i, i)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
             // end points check
-            TicTacToeBoard.Pos[] endPts = m.getWinningEndpoints();
-            TicTacToeBoard.Pos left = new TicTacToeBoard.Pos(2,0);
-            TicTacToeBoard.Pos right = new TicTacToeBoard.Pos(0,2);
+            Pos[] endPts = m.getWinningEndpoints();
+            Pos left = new Pos(2,0);
+            Pos right = new Pos(0,2);
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
     }
+
 
     @Test
     public void makeMove() {
@@ -174,6 +175,28 @@ public class TicTacToeBoardTest {
         } catch (RuntimeException e) {
 
         }
+        // post win checking
+        Assert.assertTrue(m.isWin()); // win variable
+        Assert.assertEquals(m.getWinner(), TicTacToeBoard.X); // winner variable
+        // end points check
+        Pos[] endPts = m.getWinningEndpoints();
+        Pos left = new Pos(2,2);
+        Pos right = new Pos(2,0);
+        Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
+        Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
+
+        m.makeMove(TicTacToeBoard.O, 0, 0); // after win move
+        System.out.println(m.displayBoardString());
+
+        //win parameters shouldn't change
+        Assert.assertTrue(m.isWin()); // win variable
+        Assert.assertEquals(m.getWinner(), TicTacToeBoard.X); // winner variable
+        // end points check
+        endPts = m.getWinningEndpoints();
+        left = new Pos(2,2);
+        right = new Pos(2,0);
+        Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
+        Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
     }
 
     @Test
