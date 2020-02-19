@@ -31,15 +31,15 @@ public class TicTacToeGame {
 
                 if (m.validMove(move)) { // check move validity, if so make move
                     if (isPlayerX) {
-                        m.makeMove(TicTacToeBoard.X, move);
+                        m.makeMove(move, TicTacToeBoard.X);
                     } else {
-                        m.makeMove(TicTacToeBoard.O, move);
+                        m.makeMove(move, TicTacToeBoard.O);
                     }
                     isPlayerX = !isPlayerX; // update player
                 } else {
                     System.out.println("move not valid!");
                 }
-            } else {
+        } else {
                 System.out.println("input format not recognized!");
             }
             System.out.println(m.displayBoardString());

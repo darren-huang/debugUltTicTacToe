@@ -12,19 +12,19 @@ public class TicTacToeBoardTest {
 
         // check 1
         Pos pos = new Pos(0, 0);
-        Assert.assertTrue(m.boardGet(pos) == 0);
-        m.boardSet(pos, player1);
-        Assert.assertTrue(m.boardGet(pos) == player1);
+        Assert.assertTrue(m.get(pos) == 0);
+        m.set(pos, player1);
+        Assert.assertTrue(m.get(pos) == player1);
 
         // check 2
         int player2 = 2;
         pos = new Pos(2, 2);
-        Assert.assertTrue(m.boardGet(pos) == 0);
-        m.boardSet(pos, player2);
-        Assert.assertTrue(m.boardGet(pos) == player2);
+        Assert.assertTrue(m.get(pos) == 0);
+        m.set(pos, player2);
+        Assert.assertTrue(m.get(pos) == player2);
 
         // check consistency
-        Assert.assertTrue(m.boardGet(0, 0) == player1);
+        Assert.assertTrue(m.get(0, 0) == player1);
     }
 
     @Test
@@ -61,8 +61,8 @@ public class TicTacToeBoardTest {
         Assert.assertFalse(m.validMove(new Pos(-1, 1)));
 
         // 2. isn't occupied
-        m.boardSet(0, 0, 1);
-        m.boardSet(2, 0, 1);
+        m.set(0, 0, 1);
+        m.set(2, 0, 1);
 
         // corners again
         Assert.assertFalse(m.validMove(new Pos(0, 0)));
@@ -77,11 +77,11 @@ public class TicTacToeBoardTest {
         for (int i = 0; i < 3; i ++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
-            m.boardSet(0, 0, player1);
+            m.set(0, 0, player1);
             Assert.assertFalse(m.checkWin(new Pos(0, 0))); // no win
-            m.boardSet(1, 0, player1);
+            m.set(1, 0, player1);
             Assert.assertFalse(m.checkWin(new Pos(1, 0))); // no win
-            m.boardSet(2, 0, player1);
+            m.set(2, 0, player1);
             Assert.assertTrue(m.checkWin(new Pos(i, 0)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
@@ -96,11 +96,11 @@ public class TicTacToeBoardTest {
         for (int i = 0; i < 3; i ++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
-            m.boardSet(0, 0, player1);
+            m.set(0, 0, player1);
             Assert.assertFalse(m.checkWin(new Pos(0, 0))); // no win
-            m.boardSet(0, 1, player1);
+            m.set(0, 1, player1);
             Assert.assertFalse(m.checkWin(new Pos(0, 1))); // no win
-            m.boardSet(0, 2, player1);
+            m.set(0, 2, player1);
             Assert.assertTrue(m.checkWin(new Pos(0, i)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
@@ -115,11 +115,11 @@ public class TicTacToeBoardTest {
         for (int i = 0; i < 3; i ++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
-            m.boardSet(0, 0, player1);
+            m.set(0, 0, player1);
             Assert.assertFalse(m.checkWin(new Pos(0, 0))); // no win
-            m.boardSet(1, 1, player1);
+            m.set(1, 1, player1);
             Assert.assertFalse(m.checkWin(new Pos(1, 1))); // no win
-            m.boardSet(2, 2, player1);
+            m.set(2, 2, player1);
             Assert.assertTrue(m.checkWin(new Pos(i, i)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
@@ -134,11 +134,11 @@ public class TicTacToeBoardTest {
         for (int i = 0; i < 3; i ++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
-            m.boardSet(2, 0, player1);
+            m.set(2, 0, player1);
             Assert.assertFalse(m.checkWin(new Pos(2, 0))); // no win
-            m.boardSet(1, 1, player1);
+            m.set(1, 1, player1);
             Assert.assertFalse(m.checkWin(new Pos(1, 1))); // no win
-            m.boardSet(0, 2, player1);
+            m.set(0, 2, player1);
             Assert.assertTrue(m.checkWin(new Pos(2 - i, i)));
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
@@ -151,26 +151,25 @@ public class TicTacToeBoardTest {
         }
     }
 
-
     @Test
     public void makeMove() {
         TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 1, 1));
+        Assert.assertFalse(m.makeMove(1, 1, TicTacToeBoard.X));
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.O, 1, 0));
+        Assert.assertFalse(m.makeMove(1, 0, TicTacToeBoard.O));
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 2, 1));
+        Assert.assertFalse(m.makeMove(2, 1, TicTacToeBoard.X));
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.O, 0, 1));
+        Assert.assertFalse(m.makeMove(0, 1, TicTacToeBoard.O));
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 2, 0));
+        Assert.assertFalse(m.makeMove(2, 0, TicTacToeBoard.X));
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.O, 0, 2));
+        Assert.assertFalse(m.makeMove(0, 2, TicTacToeBoard.O));
         System.out.println(m.displayBoardString());
-        Assert.assertTrue(m.makeMove(TicTacToeBoard.X, 2, 2));
+        Assert.assertTrue(m.makeMove(2, 2, TicTacToeBoard.X));
         System.out.println(m.displayBoardString());
         try {
-            m.makeMove(TicTacToeBoard.X, 1, 1);
+            m.makeMove(1, 1, TicTacToeBoard.X);
             Assert.fail();
         } catch (RuntimeException e) {
 
@@ -185,7 +184,7 @@ public class TicTacToeBoardTest {
         Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
         Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
 
-        m.makeMove(TicTacToeBoard.O, 0, 0); // after win move
+        m.makeMove(0, 0, TicTacToeBoard.O); // after win move
         System.out.println(m.displayBoardString());
 
         //win parameters shouldn't change
@@ -202,31 +201,31 @@ public class TicTacToeBoardTest {
     @Test
     public void isFilled() {
         TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 1, 1));
+        Assert.assertFalse(m.makeMove(1, 1, TicTacToeBoard.X));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.O, 1, 0));
+        Assert.assertFalse(m.makeMove(1, 0, TicTacToeBoard.O));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 2, 1));
+        Assert.assertFalse(m.makeMove(2, 1, TicTacToeBoard.X));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.O, 0, 1));
+        Assert.assertFalse(m.makeMove(0, 1, TicTacToeBoard.O));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 2, 0));
+        Assert.assertFalse(m.makeMove(2, 0, TicTacToeBoard.X));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.O, 0, 2));
+        Assert.assertFalse(m.makeMove(0, 2, TicTacToeBoard.O));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 1, 2));
+        Assert.assertFalse(m.makeMove(1, 2, TicTacToeBoard.X));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.O, 2, 2));
+        Assert.assertFalse(m.makeMove(2, 2, TicTacToeBoard.O));
         Assert.assertFalse(m.isFilled());
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(TicTacToeBoard.X, 0, 0));
+        Assert.assertFalse(m.makeMove(0, 0, TicTacToeBoard.X));
         Assert.assertTrue(m.isFilled());
         System.out.println(m.displayBoardString());
 

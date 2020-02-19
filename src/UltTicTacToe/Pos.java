@@ -10,10 +10,12 @@ public class Pos {
         this.y = y; // moves along y-axis, origin is top-left
     }
 
+    //non-destructive
     public Pos addWith(Pos other) {
         return new Pos(this.x + other.x, this.y + other.y);
     }
 
+    //non-destructive
     public Pos mulWith(int i) {
         return new Pos(this.x * i, this.y * i);
     }
