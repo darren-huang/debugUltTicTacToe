@@ -140,13 +140,12 @@ public class UltBoard {
      * This means in either a row, column, or diagonal of TicTacToe boards all are either won by X or O
      * */
     boolean checkWin(Pos globalPos) {
-        // get player to check win for
+        // get player to check win for & check that the player won this inner TicTacToe Board
         int player = getBoard(globalPos).getWinner();
-
-        // check valid player win (if no winner, player = 0 != UltBoard.X && != UltBoard.O)
         if (player != UltBoard.X && player != UltBoard.O) {
-            return false;
+            return false; // this inner TicTacToe Board has no winner! -> can't be a winning move for UltBoard!
         }
+
         for (Pos dir: dirs) {
             // check moves in positive direction
             int streakCount = 1;
@@ -192,7 +191,7 @@ public class UltBoard {
         }
 
         // make move
-        getBoard(globalMove).makeMove(localMove, player);
+        set(globalMove, localMove, player);
 
         // check for win
         if (!win) {

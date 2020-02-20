@@ -199,19 +199,19 @@ public class UltBoardTest {
     @Test
     public void makeMove() {
         UltBoard m = new UltBoard(2, 2, 2);
-        Assert.assertFalse(m.makeMove(0, 0, 1, 1, TicTacToeBoard.X));
+        Assert.assertFalse(m.makeMove(0, 0, 1, 1, TicTacToeBoard.X)); // move shouldn't win
         System.out.println(m.displayGlobalBoardString());
-        Assert.assertFalse(m.makeMove(1, 1, 0, 0, TicTacToeBoard.O));
+        Assert.assertFalse(m.makeMove(1, 1, 0, 0, TicTacToeBoard.O)); // move shouldn't win
         System.out.println(m.displayGlobalBoardString());
-        Assert.assertFalse(m.makeMove(0, 0, 1, 0, TicTacToeBoard.X));
+        Assert.assertFalse(m.makeMove(0, 0, 1, 0, TicTacToeBoard.X)); // move shouldn't win
         System.out.println(m.displayGlobalBoardString());
-        Assert.assertFalse(m.makeMove(1, 0, 0, 1, TicTacToeBoard.O));
+        Assert.assertFalse(m.makeMove(1, 0, 0, 1, TicTacToeBoard.O)); // move shouldn't win
         System.out.println(m.displayGlobalBoardString());
-        Assert.assertFalse(m.makeMove(0, 1, 1, 1, TicTacToeBoard.X));
+        Assert.assertFalse(m.makeMove(0, 1, 1, 1, TicTacToeBoard.X)); // move shouldn't win
         System.out.println(m.displayGlobalBoardString());
-        Assert.assertFalse(m.makeMove(1, 1, 0, 1, TicTacToeBoard.O));
+        Assert.assertFalse(m.makeMove(1, 1, 0, 1, TicTacToeBoard.O)); // move shouldn't win
         System.out.println(m.displayGlobalBoardString());
-        Assert.assertTrue(m.makeMove(0, 1, 0, 1, TicTacToeBoard.X));
+        Assert.assertTrue(m.makeMove(0, 1, 0, 1, TicTacToeBoard.X)); // move SHOULD win
         System.out.println(m.displayGlobalBoardString());
         try {
             m.makeMove(0, 0, 1, 1, TicTacToeBoard.X);
@@ -243,7 +243,7 @@ public class UltBoardTest {
         Assert.assertFalse(m.makeMove(1, 0, 0, 0, TicTacToeBoard.X));
         System.out.println(m.displayGlobalBoardString());
         Assert.assertFalse(m.isFilled());
-        Assert.assertTrue(m.makeMove(1, 0, 0, 1, TicTacToeBoard.X));
+        m.makeMove(1, 0, 0, 1, TicTacToeBoard.X);
         System.out.println(m.displayGlobalBoardString());
         Assert.assertFalse(m.isFilled());
         m.makeMove(1, 0, 1, 0, TicTacToeBoard.X);
