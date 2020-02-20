@@ -111,7 +111,7 @@ public class TicTacToeBoardTest {
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
-        // diagonal topleft -> bottomright
+        // diagonal
         for (int i = 0; i < 3; i ++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
@@ -130,43 +130,24 @@ public class TicTacToeBoardTest {
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
-        // diagonal bottom left -> top right
-        for (int i = 0; i < 3; i ++) {
-            TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
-            int player1 = 1;
-            m.set(2, 0, player1);
-            Assert.assertFalse(m.checkWin(new Pos(2, 0))); // no win
-            m.set(1, 1, player1);
-            Assert.assertFalse(m.checkWin(new Pos(1, 1))); // no win
-            m.set(0, 2, player1);
-            Assert.assertTrue(m.checkWin(new Pos(2 - i, i)));
-            Assert.assertTrue(m.isWin()); // win variable
-            Assert.assertEquals(m.getWinner(), player1); // winner variable
-            // end points check
-            Pos[] endPts = m.getWinningEndpoints();
-            Pos left = new Pos(2,0);
-            Pos right = new Pos(0,2);
-            Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
-            Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
-        }
     }
 
     @Test
     public void makeMove() {
         TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
-        Assert.assertFalse(m.makeMove(1, 1, TicTacToeBoard.X));
+        Assert.assertFalse(m.makeMove(1, 1, TicTacToeBoard.X)); // move shouldn't win
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(1, 0, TicTacToeBoard.O));
+        Assert.assertFalse(m.makeMove(1, 0, TicTacToeBoard.O)); // move shouldn't win
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(2, 1, TicTacToeBoard.X));
+        Assert.assertFalse(m.makeMove(2, 1, TicTacToeBoard.X)); // move shouldn't win
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(0, 1, TicTacToeBoard.O));
+        Assert.assertFalse(m.makeMove(0, 1, TicTacToeBoard.O)); // move shouldn't win
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(2, 0, TicTacToeBoard.X));
+        Assert.assertFalse(m.makeMove(2, 0, TicTacToeBoard.X)); // move shouldn't win
         System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(2, 2, TicTacToeBoard.O));
+        Assert.assertFalse(m.makeMove(2, 2, TicTacToeBoard.O)); // move shouldn't win
         System.out.println(m.displayBoardString());
-        Assert.assertTrue(m.makeMove(0, 2, TicTacToeBoard.X));
+        Assert.assertTrue(m.makeMove(0, 2, TicTacToeBoard.X)); // move SHOULD win
         System.out.println(m.displayBoardString());
         try {
             m.makeMove(1, 1, TicTacToeBoard.X);
