@@ -52,7 +52,6 @@ Intellij. (this project only expects you to debug, not write tests, but I used t
 you see here)
 
 ###Solutions
-
 [Solutions to the Debugging Problems (SPOILER)](https://docs.google.com/document/d/1opfU843rqPHkn_jHFXkbDJFtDu_oUqbxtuVcqn9f3d4/edit?usp=sharing)
 
 You can also get bug-free versions of the code with the following commands
