@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class UltTicTacToeGame {
     static Pattern p = Pattern.compile("\\D*(\\d+)\\D+(\\d+)\\D*");
 
+    // asks for user input until a valid global move is chosen
     private static Pos getValidGlobalMove(UltBoard m, boolean isPlayerX, BufferedReader reader) throws IOException {
         while (true) {
             // get user input
@@ -37,6 +38,7 @@ public class UltTicTacToeGame {
         }
     }
 
+    // asks for user input until a valid local move is chosen
     private static Pos getValidLocalMove(UltBoard m, boolean isPlayerX, Pos globalMove,
                                          BufferedReader reader) throws IOException {
         while (true) {
@@ -76,7 +78,7 @@ public class UltTicTacToeGame {
 
         // loop till game is done
         while (!m.isWin() && !m.isFilled()) {
-            // get user input
+            // get user global move (prev local move becomes next global move)
             if (lMove != null && m.validGlobalMove(lMove)) {
                 System.out.println("Last local move was at " + lMove.toString() );
                 System.out.println("Next global move must be at " + lMove.toString());
@@ -85,6 +87,8 @@ public class UltTicTacToeGame {
                 System.out.println(lMove != null ? "board at " + lMove.toString() + " is filled!" : "first move!:");
                 gMove = getValidGlobalMove(m, isPlayerX, reader);
             }
+
+            // get user local
             lMove = getValidLocalMove(m, isPlayerX, gMove, reader);
 
             //make move

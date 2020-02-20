@@ -3,10 +3,10 @@ package UltTicTacToe;
 public class UltBoard {
     public static final int X = TicTacToeBoard.X;
     public static final int O = TicTacToeBoard.O;
-
     // used for checking winning directions
     public static final Pos[] dirs = {new Pos(1, 0), new Pos(1, 1), new Pos(0, 1), new Pos(1, -1)};
 
+    // instance variables
     private int width;
     private int height;
     private int n;
@@ -28,7 +28,12 @@ public class UltBoard {
         return winningGlobalEndpoints;
     }
 
-    /* Ultimate Tic Tac Toe:
+    /** checks if there is room for any more moves (needed to detect ties) */
+    public boolean isFilled() {
+        return width * width * height * height == num_pieces;
+    }
+
+    /** Ultimate Tic Tac Toe:
      * Global vs. Local position:
      *     -  -  - || -  -  - || -  -  -
      *  2  -  -  - || -  -  - || -  -  -
@@ -71,6 +76,9 @@ public class UltBoard {
         }
     }
 
+    /** Get Methods:
+    *   returns the value stored at a given global and local position
+    * */
     int get(int gx, int gy, int lx, int ly) {
         return boards[gx][gy].get(lx, ly);
     }
@@ -79,6 +87,9 @@ public class UltBoard {
         return get(globalPos.x, globalPos.y, localPos.x, localPos.y);
     }
 
+    /** GetBoard Methods:
+     *   returns the TicTacToe board stored at a certain global position
+     * */
     TicTacToeBoard getBoard(Pos globalPos) {
         return boards[globalPos.x][globalPos.y];
     }
@@ -87,6 +98,10 @@ public class UltBoard {
         return getBoard(new Pos(gx, gy));
     }
 
+    /** Set Methods:
+    *   directly changes the value stored at a given global and local position
+    *   NOTE: this does NOT change any win values (ie. doesn't update win states)
+    * */
     void set(int gx, int gy, int lx, int ly, int player) {
         boards[gx][gy].set(lx, ly, player);
     }
@@ -95,8 +110,8 @@ public class UltBoard {
         set(globalPos.x, globalPos.y, localPos.x, localPos.y, player);
     }
 
-    /* valid position
-     *   1. is a valid place on the board ie. exists
+    /** valid position: checks the if the following is satisfied
+     *   1. is a valid place on the board ie. coordinates are within bounds
      *      Note: works for both local and global positions
      * */
     boolean validPos(Pos pos) {
@@ -104,44 +119,49 @@ public class UltBoard {
         return validPosition;
     }
 
-    /* valid move
-     *   1. is a valid place on the board
-     *   2. isn't occupied by another player
+    /** valid move: checks the if the following is satisfied
+     *   1. is a valid place on the board ie. coordinates are within bounds
+     *   2. isn't already occupied by any player
      * */
-    boolean validMove(Pos globalPos, Pos localPos) {
+    public boolean validMove(Pos globalPos, Pos localPos) {
         return validPos(globalPos) && getBoard(globalPos).validMove(localPos); // also needs space unoccupied
     }
 
-    /* valid global move
-     *   1. is a valid place on the board
-     *   2. isn't a filled board
+    /** valid global move: checks if the following is satisfied
+     *   1. is a valid place on the board ie. coordinates are within bounds
+     *   2. isn't a filled board ie. there is room on the TicTacToe board at globalPos for another local move
      * */
-    boolean validGlobalMove(Pos globalPos) {
+    public boolean validGlobalMove(Pos globalPos) {
         return validPos(globalPos) && !getBoard(globalPos).isFilled(); // also needs space unoccupied
     }
 
-    public boolean isFilled() {
-        return width * width * height * height == num_pieces;
-    }
-
-    // check if the latest move (given by "move") causes a win || assumes win == false
+    /** check if the latest move (given by "move") causes a win || assumes win == false
+     * For Ultimate Tic Tac Toe, a win means "n" TicTacToe boards in a row are won by the same player
+     * This means in either a row, column, or diagonal of TicTacToe boards all are either won by X or O
+     * */
     boolean checkWin(Pos globalPos) {
+        // get player to check win for
         int player = getBoard(globalPos).getWinner();
+
+        // check valid player win (if no winner, player = 0 != UltBoard.X && != UltBoard.O)
         if (player != UltBoard.X && player != UltBoard.O) {
             return false;
         }
         for (Pos dir: dirs) {
+            // check moves in positive direction
             int streakCount = 1;
             Pos globalPtr1 = globalPos.addWith(dir);
             while (validPos(globalPtr1) && getBoard(globalPtr1).getWinner() == player) {
                 streakCount += 1;
                 globalPtr1 = globalPtr1.addWith(dir);
             }
+            // check moves in negative direction
             Pos globalPtr2 = globalPos.addWith(dir.mulWith(-1));
             while (validPos(globalPtr2) && getBoard(globalPtr2).getWinner() == player) {
                 streakCount += 1;
                 globalPtr2 = globalPtr2.addWith(dir.mulWith(-1));
             }
+            // check if we have enough of a win streak
             if (streakCount >= this.n) {
                 this.win = true;
                 this.winner = player;
@@ -152,15 +172,14 @@ public class UltBoard {
         return win;
     }
 
-    // makes a move for a given player (player is either UltBoard.X or UltBoard.O)
-    // returns whether or not that player won
+    /** see other "makeMove" */
     public boolean makeMove(int gx, int gy, int lx, int ly, int player) {
         return makeMove(new Pos(gx, gy), new Pos(lx, ly), player);
     }
 
-    // makes a move for a given player (player is either TicTacToe.Model.X or TicTacToe.Model.O)
-    // returns whether or not that player won
-    // ** UPDATE: if a player has already won, no longer will "checkWin" but still place piece
+    /** makes a move for a given player (player is either UltBoard.X or UltBoard.O)
+    * returns whether or not that player won
+    * NOTE: this correctly updates win state for both UltBoard and the inner TicTacToeBoard */
     public boolean makeMove(Pos globalMove, Pos localMove, int player) {
         // check valid move
         if (!validMove(globalMove, localMove)) {
@@ -171,10 +190,6 @@ public class UltBoard {
         if (player != TicTacToeBoard.X && player != TicTacToeBoard.O) {
             throw new RuntimeException("player is invalid");
         }
-
-//        if (win) {
-//            throw new RuntimeException("game is over");
-//        }
 
         // make move
         getBoard(globalMove).makeMove(localMove, player);
@@ -189,6 +204,9 @@ public class UltBoard {
         return win;
     }
 
+    /** -----------------------------------------------------------------------------------------------------------------
+     * -----------------------------------      "GUI" Functions       --------------------------------------------------
+     * -----------------------------------------------------------------------------------------------------------------*/
     public String displayWinString() {
         if (!win) {
             if (isFilled()) {
