@@ -109,8 +109,7 @@ public class UltBoard {
      *   2. isn't occupied by another player
      * */
     boolean validMove(Pos globalPos, Pos localPos) {
-        return validPos(globalPos) && validPos(localPos)
-                && get(globalPos, localPos) == 0; // also needs space unoccupied
+        return validPos(globalPos) && getBoard(globalPos).validMove(localPos); // also needs space unoccupied
     }
 
     /* valid global move
@@ -123,10 +122,6 @@ public class UltBoard {
 
     public boolean isFilled() {
         return width * width * height * height == num_pieces;
-    }
-
-    boolean checkWin(Pos globalPos, Pos localPos) {
-        return checkWin(globalPos);
     }
 
     // check if the latest move (given by "move") causes a win || assumes win == false

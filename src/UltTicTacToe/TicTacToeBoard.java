@@ -197,8 +197,9 @@ public class TicTacToeBoard {
     // Prints out the board
     public String displayBoardString() {
         String displayString = "";
-        for (String str: displayBoardStringList(true)) {
-            displayString += str + "\n";
+        String[] listStrings = displayBoardStringList(true);
+        for (int i = 0; i < listStrings.length; i++) {
+            displayString += listStrings[i] + (i == listStrings.length - 1 ? "" : "\n");
         }
         return displayString;
     }
