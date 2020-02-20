@@ -50,7 +50,7 @@ Make sure to read the Design Document to get an understanding of how the code in
 works. There a couple of tips and tricks provided for using Intellij, Debugging with Intellij, and creating unit Tests in
 Intellij. (this project only expects you to debug, not write tests, but I used the Testing tips myself to create the tests
 you see here)
-
+##Solutions
 ###Solutions
 [Solutions to the Debugging Problems (SPOILER)](https://docs.google.com/document/d/1opfU843rqPHkn_jHFXkbDJFtDu_oUqbxtuVcqn9f3d4/edit?usp=sharing)
 
