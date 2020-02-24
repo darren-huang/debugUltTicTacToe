@@ -203,9 +203,8 @@ public class UltBoard {
         return win;
     }
 
-    /** -----------------------------------------------------------------------------------------------------------------
-     * -----------------------------------      "GUI" Functions       --------------------------------------------------
-     * -----------------------------------------------------------------------------------------------------------------*/
+    /** -----------------------------------      "GUI" Function       --------------------------------------------------
+     * prints the winner information*/
     public String displayWinString() {
         if (!win) {
             if (isFilled()) {
@@ -227,7 +226,8 @@ public class UltBoard {
         return winString;
     }
 
-    // prints out the board with global numberings
+    /** -----------------------------------      "GUI" Function       --------------------------------------------------
+     * Converts the board into a long string. Includes numbering for the local board at (gx,gy)*/
     public String displayLocalBoardString(int gx, int gy) {
         String retStr = "";
         for (int y = height - 1; y >= 0; y--) {
@@ -255,7 +255,9 @@ public class UltBoard {
         return retStr;
     }
 
-    // prints out the board with global numberings
+    /** -----------------------------------      "GUI" Function       --------------------------------------------------
+     * Converts the board into a long string. Only has numberings for the Global Board positions
+     * (no inner boards have numbers)*/
     public String displayGlobalBoardString() {
         String retStr = "";
         for (int y = height - 1; y >= 0; y--) {
