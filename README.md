@@ -57,7 +57,7 @@ you see here)
 
 You can also get bug-free versions of the code with the following commands
 ```
-git checkout --track origin/UltTicTacToe
+git checkout --track origin/TicTacToe
 git checkout --track origin/TicTacToe
 ```
 you can move between these branches by checking them out, just remove the `--track origin/` from the command after the

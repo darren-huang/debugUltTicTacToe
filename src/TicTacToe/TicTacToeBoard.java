@@ -1,4 +1,4 @@
-package UltTicTacToe;
+package TicTacToe;
 
 public class TicTacToeBoard {
     public static final int X = 1;
