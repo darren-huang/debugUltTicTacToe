@@ -159,9 +159,8 @@ public class TicTacToeBoard {
         return win;
     }
 
-    /** -----------------------------------------------------------------------------------------------------------------
-     * -----------------------------------      "GUI" Functions       --------------------------------------------------
-     * -----------------------------------------------------------------------------------------------------------------*/
+    /** -----------------------------------      "GUI" Function       --------------------------------------------------
+     * prints the winner information*/
     public String displayWinString() {
         if (!win) {
             if (isFilled()) {
@@ -182,6 +181,9 @@ public class TicTacToeBoard {
         return winString;
     }
 
+    /** -----------------------------------      "GUI" Function       --------------------------------------------------
+     * Converts the board into a long string. This returns a list of Strings, each string corresponds to one row of the
+     * board*/
     public String[] displayBoardStringList(boolean showNum) {
         // init retlist
         String[] retList = new String[height + 2];
@@ -217,7 +219,8 @@ public class TicTacToeBoard {
         return retList;
     }
 
-    // Prints out the board
+    /** -----------------------------------      "GUI" Function       --------------------------------------------------
+     * Converts the board into a long string.*/
     public String displayBoardString() {
         String displayString = "";
         String[] listStrings = displayBoardStringList(true);
