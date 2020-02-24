@@ -1,4 +1,4 @@
-package UltTicTacToe;
+package TicTacToe;
 
 import java.util.Objects;
 

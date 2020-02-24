@@ -1,4 +1,4 @@
-package UltTicTacToe;
+package TicTacToe;
 
 import java.io.BufferedReader;
 import java.io.IOException;
