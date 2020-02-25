@@ -69,16 +69,16 @@ Your task is to debug the issue with the code, fix the code, and pass the test!
         1. to expand only the method your cursor is on, use `Cmd Opt +`, Windows `Ctrl Alt +`
         1. This is called Code Folding if you wanna google extra IntelliJ commands for it.
     1. **hold `Cmd` and click** the name of class/function/variable to move to the location in the code where it is defined
-        1. windows ppl use `Ctrl`)
-        1. there are usually comments near where the class/function/variable was defined that say what it is used for
+        1. Windows ppl use `Ctrl` click
+        1. there are usually comments near where the class/function/variable was defined that say what it is used for so this is helpful for when you don't know what a variable/function is used for
     1. **right click and select `Find Usages`** on any class/function/variable to see where it is used in the code 
         1. if you are already at the class/function/variable, a `Cmd` or `Ctrl` click will also display the usage locations
     1. `Cmd Opt left` will bring you back to your last cursor position in the project 
         1. `Cmd Opt right` will bring you to the next most recent cursor position
-        1. If you `Cmd` or `Ctrl` clicked a bunch and got lost on where you were originally, use this command to get back on track 
+        1. If you `Cmd` or `Ctrl` clicked many times in a row and got lost on where you were originally, use this command to get back on track 
         1. for Windows users this is `Ctrl Alt left` and `Ctrl Alt right`, **WARNING:** if this messes up your display fix with `Ctrl Alt up`, follow [these instructions](https://superuser.com/questions/373832/disable-alt-arrow-display-flip-keyboard-shortcut) to prevent the command from messing up your display
     
-1. Using the Debugger! This helps you by walking through the key parts of the code where stuff might be going wrong. We're assuming you know how to get into debugging mode by setting break points and hitting the 🐞 debug button at the top. Here are important debugging buttons ![IntelliJ Debugging Window Img](imgs/debugging_intellij.PNG)
+1. Using the Debugger! This helps you by walking through the key parts of the code where stuff might be going wrong. We're assuming you know how to get into debugging mode by setting break points and hitting the 🐞 debug button at the top. Here are some more important debugging buttons: ![IntelliJ Debugging Window Img](imgs/debugging_intellij.PNG)
     1. [Red] Step Over: Run one line of code in the current function call (equivalent of moving exactly one line down)
     1. [Yellow] Step Into: Go to the first line of the function that is being called (ie. if currently on a line `student.debug("tictactoe")` it will go to the first line of the `debug` function in the `student`'s class) 
         1. If there are multiple functions to step into, you can left click which one you want to step into. (ie. if running `student.debug(project.getName())` click the [Yellow] button and then left click either `debug` or `getName`)
