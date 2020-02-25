@@ -1,7 +1,7 @@
 # Debug (Ultimate) TicTacToe
 Hello! Welcome to CSM 61b's debugging project. We have coded up TicTacToe with some JUnit 4 unit & integration tests, but we also have snuck in a couple of bugs 🐜! There are some tutorials along the way to help teach how to use Intellij and speed up your debugging process. The solutions for the bugs include how I personally debugged these issues (some of them were real bugs I stumbled upon creating this project).
 
-If you finish debugging the TicTacToe bugs give debugging our Ultimate TicTacToe project a shot. Ultimate TicTacToe is built upon TicTacToe project from the previous section but has some additional rules. [Here](https://www.youtube.com/watch?v=37PC0bGMiTI&t=103s) is a good YouTube video describing how Ultimate Tic Tac Toe works! Give debugging this bigger project a shot too (though with more code it is much harder).
+If you finish debugging the TicTacToe bugs, give debugging our Ultimate TicTacToe project a shot. Ultimate TicTacToe is built upon TicTacToe project from the previous section but has some additional rules. [Here](https://www.youtube.com/watch?v=37PC0bGMiTI&t=103s) is a good YouTube video describing how Ultimate Tic Tac Toe works! Give debugging this bigger project a shot too (though with more code it is much harder).
 
 This is a debugging project meaning, on the git repository I've added different git branches (which you can think of as versions of the code) with bugs added in. Follow the commands to get the bugged versions of the code into your local computer and try debugging them with Intellij!
 
@@ -23,7 +23,7 @@ git status
 - command should print `On branch TicTacToeBug1...`
 - if it doesn't print that run `git checkout TicTacToeBug1`
 
-## Begin Debugging `TicTacToeBug1`!
+## Q1: Begin Debugging `TicTacToeBug1`!
 Start with `TicTacToeBug1` first! This is just the classic Tic Tac Toe game, but the only change is you can now specify
 the size of the board and the number of pieces in a row you need to win (so you can play 5x5 tic tac toe etc.).
 
@@ -40,7 +40,7 @@ We'll be using IntelliJ as our IDE to do our debugging.
 ### Running the JUnit4 Unit & Integration tests
 Before we set off bug hunting lets run the provided tests and see which one(s) fail
 1. Open `TicTacToeBoardTest.java` in IntelliJ and look at line 6
-1. To the left of `public class TicTacToeBoardTest {` you should see a green arrow. Click it and select `Create 'TicTacToeBoardTest'... > OK`
+1. To the left of `public class TicTacToeBoardTest {` you should see a green arrow. Click it and select `Create 'TicTacToeBoardTest'... > OK` // Alternatively you can also right click the `TicTacToeBoardTest.java` file on the left and select `Create 'TicTacToeBoardTest'... > OK`
 1. Now on the toolbar at the top (right below the `File, Edit, View..` row) you should see a green "►" button. Click this to run all the tests. One test should fail!
 
 Here is a quick explanation of what we just did: Every time we click the "►" button we tell IntelliJ to run a "Run Configuration" which tells IntelliJ what code to run and how to run it. If you see the drop-down menu next to the "►" we can select which "Run Configuration" to run. When we right click a file and select the "►" run option, we tell Intellij just to run the main method of that file. 
@@ -58,11 +58,17 @@ Your task is to debug the issue with the code, fix the code, and pass the test!
 - `TicTacToeGame.java` adds some game logic forcing players to switch off turns and ending the game once someone wins (there shouldn't be any bugs here)
     - to play 3 x 3 version of tic tac toe run the main method of this file.
 
-#### Recommended Debugging Steps
-1. First step is to understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in real projects you are debugging code you wrote and yourself, and luckily again this TicTacToe project isn't too complex. Here are some steps to get acquainted in this project.
+#### Debugging Tips
+1. First step is to understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in 61b projects you are debugging code you mostly wrote yourself, and luckily again this TicTacToe project isn't too complex. Here are some steps to get acquainted in this project.
     1. Use the ["design document" on this project](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing)
        in order to get a better idea of what the code is doing.
-    1. In IntelliJ use `Ctrl Shift -`/`Cmd Shift -` to minimize all the code bodies to just see method signatures and associated comments. Unminimize stuff with `Ctrl Shift +`/`Cmd Shift +`. 
+    1. In IntelliJ use `Cmd Shift -` to minimize all the code bodies to just see method signatures and associated comments. Expand the minimized stuff with `Cmd Shift +`. Windows users replace `Cmd` with `Ctrl` . This is called Code Folding if you wanna google extra IntelliJ commands for it.
+        1. to expand only the method your cursor is on, use `Cmd Opt +`, Windows `Ctrl Alt +`
+    1. If you see a class/function/variable/ you don't recognize or are confused by hold `Cmd` and click the name (windows ppl use `Ctrl`). This moves you to the location the variable is defined where you can look for comments about why it is being made.
+    1. If you want to see where that class/function/variable was used in the code, right click it and select `Find Usages` (if you are already at the class/function/variable, a `Cmd` or `Ctrl` click will also display the usage locations)
+1. Using the Debugger! This helps you by walking through the key parts of the code where stuff might be going wrong. Here are important debugging buttons (hover over button icons to display their names)
+    1. 
+    
 
 
 
