@@ -4,8 +4,8 @@ public class TicTacToeBoard {
     public static final int X = 1;
     public static final int O = 2;
 
-    // used for checking winning directions
-    public static final Pos[] dirs = {new Pos(1, 0), new Pos(1, 1), new Pos(0, 1), new Pos(1, -1)};
+    // used for checking winning directions: ie. horizontal, vertical, and diagonal
+    public static final Pos[] dirs = {new Pos(1, 0), new Pos(1, 1), new Pos(0, 1)};
 
     private int width, height; //the board will be width x height in dimensions
     private int n; //to win you must get 'n' symbols in a row/column/diagonal
@@ -103,9 +103,9 @@ public class TicTacToeBoard {
         if (player != TicTacToeBoard.X && player != TicTacToeBoard.O) {
             return false;
         }
-        for (Pos dir: dirs) {
+        for (Pos dir: dirs) { // TODO: what is dir and what is dirs?
             // check moves in positive direction
-            int streakCount = 0;
+            int streakCount = 0; // TODO: what is streakCount? What is it used for?
             Pos pointer1 = move.addWith(dir);
             while (validPos(pointer1) && get(pointer1) == player) {
                 streakCount += 1;
@@ -119,7 +119,8 @@ public class TicTacToeBoard {
             }
             // check if we have enough of a win streak
             if (streakCount >= this.n) {
-                this.win = true;
+                this.win = true; /* TODO: our code is failing to set win to true when it should:
+                                           what condition must be met for us to set this.win=true?*/
                 this.winner = player;
                 this.winningEndpoints = new Pos[]{pointer1.addWith(dir.mulWith(-1)), pointer2.addWith(dir)};
                 return win;
