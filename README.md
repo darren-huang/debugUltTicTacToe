@@ -97,7 +97,7 @@ If you're done move on to `TicTacToeBug2` which passes the current test but will
 If you're done move on to `UltTicTacToeBug1` which passes  `TicTacToeBoardTest` but will fail a test in `UltBoardTest`.
 
 ## Switching between problems
-currently there are 2 different bugged branches of the code. One is named UltTicTacToeBug1 and the other is named TicTacToeBug1
+currently there are 3 different bugged branches of the code. One is named UltTicTacToeBug1 and the other two are named TicTacToeBug1 & TicTacToeBug2
 to switch in-between them, commit all your changes first then run
 ```
 git checkout TicTacToeBug1
