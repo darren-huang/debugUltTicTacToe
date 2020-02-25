@@ -151,52 +151,52 @@ public class TicTacToeBoardTest {
         }
     }
 
-    @Test
-    public void makeMove() {
-        TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
-        Assert.assertFalse(m.makeMove(1, 1, TicTacToeBoard.X));
-        System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(1, 0, TicTacToeBoard.O));
-        System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(2, 1, TicTacToeBoard.X));
-        System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(0, 1, TicTacToeBoard.O));
-        System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(2, 0, TicTacToeBoard.X));
-        System.out.println(m.displayBoardString());
-        Assert.assertFalse(m.makeMove(2, 2, TicTacToeBoard.O));
-        System.out.println(m.displayBoardString());
-        Assert.assertTrue(m.makeMove(0, 2, TicTacToeBoard.X));
-        System.out.println(m.displayBoardString());
-        try {
-            m.makeMove(1, 1, TicTacToeBoard.X);
-            Assert.fail();
-        } catch (RuntimeException e) {
-
-        }
-        // post win checking
-        Assert.assertTrue(m.isWin()); // win variable
-        Assert.assertEquals(m.getWinner(), TicTacToeBoard.X); // winner variable
-        // end points check
-        Pos[] endPts = m.getWinningEndpoints();
-        Pos left = new Pos(0,2);
-        Pos right = new Pos(2,0);
-        Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
-        Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
-
-        m.makeMove(0, 0, TicTacToeBoard.O); // after win move
-        System.out.println(m.displayBoardString());
-
-        //win parameters shouldn't change
-        Assert.assertTrue(m.isWin()); // win variable
-        Assert.assertEquals(m.getWinner(), TicTacToeBoard.X); // winner variable
-        // end points check
-        endPts = m.getWinningEndpoints();
-        left = new Pos(0,2);
-        right = new Pos(2,0);
-        Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
-        Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
-    }
+//    @Test
+//    public void makeMove() {
+//        TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
+//        Assert.assertFalse(m.makeMove(1, 1, TicTacToeBoard.X));
+//        System.out.println(m.displayBoardString());
+//        Assert.assertFalse(m.makeMove(1, 0, TicTacToeBoard.O));
+//        System.out.println(m.displayBoardString());
+//        Assert.assertFalse(m.makeMove(2, 1, TicTacToeBoard.X));
+//        System.out.println(m.displayBoardString());
+//        Assert.assertFalse(m.makeMove(0, 1, TicTacToeBoard.O));
+//        System.out.println(m.displayBoardString());
+//        Assert.assertFalse(m.makeMove(2, 0, TicTacToeBoard.X));
+//        System.out.println(m.displayBoardString());
+//        Assert.assertFalse(m.makeMove(2, 2, TicTacToeBoard.O));
+//        System.out.println(m.displayBoardString());
+//        Assert.assertTrue(m.makeMove(0, 2, TicTacToeBoard.X));
+//        System.out.println(m.displayBoardString());
+//        try {
+//            m.makeMove(1, 1, TicTacToeBoard.X);
+//            Assert.fail();
+//        } catch (RuntimeException e) {
+//
+//        }
+//        // post win checking
+//        Assert.assertTrue(m.isWin()); // win variable
+//        Assert.assertEquals(m.getWinner(), TicTacToeBoard.X); // winner variable
+//        // end points check
+//        Pos[] endPts = m.getWinningEndpoints();
+//        Pos left = new Pos(0,2);
+//        Pos right = new Pos(2,0);
+//        Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
+//        Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
+//
+//        m.makeMove(0, 0, TicTacToeBoard.O); // after win move
+//        System.out.println(m.displayBoardString());
+//
+//        //win parameters shouldn't change
+//        Assert.assertTrue(m.isWin()); // win variable
+//        Assert.assertEquals(m.getWinner(), TicTacToeBoard.X); // winner variable
+//        // end points check
+//        endPts = m.getWinningEndpoints();
+//        left = new Pos(0,2);
+//        right = new Pos(2,0);
+//        Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
+//        Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
+//    }
 
     @Test
     public void isFilled() {

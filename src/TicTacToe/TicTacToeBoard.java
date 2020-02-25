@@ -105,7 +105,7 @@ public class TicTacToeBoard {
         }
         for (Pos dir: dirs) {
             // check moves in positive direction
-            int streakCount = 1;
+            int streakCount = 0;
             Pos pointer1 = move.addWith(dir);
             while (validPos(pointer1) && get(pointer1) == player) {
                 streakCount += 1;
