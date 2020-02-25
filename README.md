@@ -48,7 +48,11 @@ Here is a quick explanation of what we just did: Every time we click the "►" b
 By going through the steps we did to make a new JUnit Run Configuration, Intellij knows to run all the tests in that file and format the JUnit test output.
 
 ### Start Debugging!
-Your task is to debug the issue with the code, fix the code, and pass the test! Note: all parts of the code except the one's labelled as GUI functions can contain the bug.
+Your task is to debug the issue with the code, fix the code, and pass the test! Quick info about the project:
+- The bug is in `TicTacToeBoard.java`, this is where most of the board logic is
+    - the most complex function is the "checkWin". This [design document](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing) has info on how it works.
+- `TicTacToeBoardTest.java` contains the unit and integration tests. `makeMove()` Test is the integration test.
+    - while these unit tests are decent, you should **never** assume a unit test passing implies the function it is testing is perfect
 
 1. First step is to understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in real projects you are debugging code you wrote and yourself, and luckily again this TicTacToe is relatively simple. Here are some steps to get acquinted in this project.
     1. Use the ["design document" on this project](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing)
