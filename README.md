@@ -14,6 +14,7 @@ cd debugUltTicTacToe
 2\. now pull the following branches into your repository. run:
 ```
 git checkout --track origin/UltTicTacToeBug1
+git checkout --track origin/TicTacToeBug2
 git checkout --track origin/TicTacToeBug1
 ```
 3\. check you are on the `TicTacToeBug1` branch. run:
@@ -87,16 +88,20 @@ Your task is to debug the issue with the code, fix the code, and pass the test!
     1. [Purple] Mute Breakpoints: prevents code from stopping at any break points. This is useful when you have breakpoints in frequently used functions and want to "Step Over" a bunch of code without stopping on break points.
     1. [Pink] Show Execution Point: if you get lost scrolling through other sections of code and forget where the current debugger is stopped at, this brings you back to where the debugger is
     
+## TicTacToeBug2
 
+If you're done move on to `TicTacToeBug2` which passes the current test but will fail a new integration test in `TicTacToeBoardTest`. Note that this one passes all unit tests, but the unit tests here missed something which is affecting the integration test. One debugging idea is to make the unit tests more robust to catch the bug, but in my personal opinion debugging the integration test is far easier.
 
+## UltTicTacToeBug1
 
 If you're done move on to `UltTicTacToeBug1` which passes  `TicTacToeBoardTest` but will fail a test in `UltBoardTest`.
 
 ## Switching between problems
-currently there are 2 different bugged branches of the code. One is named UltTicTacToeBug1 and the other is named TicTacToeBug1
+currently there are 3 different bugged branches of the code. One is named UltTicTacToeBug1 and the other two are named TicTacToeBug1 & TicTacToeBug2
 to switch in-between them, commit all your changes first then run
 ```
 git checkout TicTacToeBug1
+git checkout TicTacToeBug2
 git checkout UltTicTacToeBug1
 ```
 
