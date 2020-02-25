@@ -106,22 +106,22 @@ public class TicTacToeBoard {
         for (Pos dir: dirs) {
             // check moves in positive direction
             int streakCount = 1;
-            Pos pointer1 = move.addWith(dir);
+            Pos pointer1 = move.plus(dir);
             while (validPos(pointer1) && get(pointer1) == player) {
                 streakCount += 1;
-                pointer1 = pointer1.addWith(dir);
+                pointer1 = pointer1.plus(dir);
             }
             // check moves in negative direction
-            Pos pointer2 = move.addWith(dir.mulWith(-1));
+            Pos pointer2 = move.plus(dir.times(-1));
             while (validPos(pointer2) && get(pointer2) == player) {
                 streakCount += 1;
-                pointer2 = pointer2.addWith(dir.mulWith(-1));
+                pointer2 = pointer2.plus(dir.times(-1));
             }
             // check if we have enough of a win streak
             if (streakCount >= this.n) {
                 this.win = true;
                 this.winner = player;
-                this.winningEndpoints = new Pos[]{pointer1.addWith(dir.mulWith(-1)), pointer2.addWith(dir)};
+                this.winningEndpoints = new Pos[]{pointer1.plus(dir.times(-1)), pointer2.plus(dir)};
                 return win;
             }
         }
