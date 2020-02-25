@@ -62,12 +62,23 @@ Your task is to debug the issue with the code, fix the code, and pass the test!
 1. First step is to understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in 61b projects you are debugging code you mostly wrote yourself, and luckily again this TicTacToe project isn't too complex. Here are some steps to get acquainted in this project.
     1. Use the ["design document" on this project](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing)
        in order to get a better idea of what the code is doing.
+1. Dive into the code on IntelliJ. Use some of these IntelliJ features to help you navigate/explore the code:
     1. In IntelliJ use `Cmd Shift -` to minimize all the code bodies to just see method signatures and associated comments. Expand the minimized stuff with `Cmd Shift +`. Windows users replace `Cmd` with `Ctrl` . This is called Code Folding if you wanna google extra IntelliJ commands for it.
         1. to expand only the method your cursor is on, use `Cmd Opt +`, Windows `Ctrl Alt +`
     1. If you see a class/function/variable/ you don't recognize or are confused by hold `Cmd` and click the name (windows ppl use `Ctrl`). This moves you to the location the variable is defined where you can look for comments about why it is being made.
     1. If you want to see where that class/function/variable was used in the code, right click it and select `Find Usages` (if you are already at the class/function/variable, a `Cmd` or `Ctrl` click will also display the usage locations)
-1. Using the Debugger! This helps you by walking through the key parts of the code where stuff might be going wrong. Here are important debugging buttons (hover over button icons to display their names)
-    1. 
+    1. If you want to go back to your last cursor position in the project press `Cmd Opt left` to go to the next most recent cursor position press `Cmd Opt right`
+        1. If you `Cmd` or `Ctrl` clicked a bunch and got lost on where you were originally, use this command to get back on track 
+        1. windows is `Ctrl Alt left` and `Ctrl Alt right`, **WARNING:** if this messes up your display fix with `Ctrl Alt up`, follow [these instructions](https://superuser.com/questions/373832/disable-alt-arrow-display-flip-keyboard-shortcut) to prevent the command from messing up your display
+    
+1. Using the Debugger! This helps you by walking through the key parts of the code where stuff might be going wrong. We're assuming you know how to get into debugging mode by setting break points and hitting the 🐞 debug button at the top. Here are important debugging buttons ![IntelliJ Debugging Window Img](imgs/debugging_intellij.PNG)
+    1. [Red] Step Over: Run one line of code in the current function call (equivalent of moving exactly one line down)
+    1. [Yellow] Step Into: Go to the first line of the function that is being called (ie. if currently on a line `student.debug("tictactoe")` it will go to the first line of the `debug` function in the `student`'s class) 
+        1. If there are multiple functions to step into, you can left click which one you want to step into. (ie. if running `student.debug(project.getName())` click the [Yellow] button and then left click either `debug` or `getName`)
+    1. [Green] Step Out: keep running the current function until a return or the end of the function and return to the place in code where the current function was called. Steps you out of the current call frame.
+    1. **_[Blue] Continue:_** run the code normally (ie. infinitely click "Step Over") until you hit a break point. This allows you to set a lot of break points at points of interest and fast forward in-between the break points you set rather than clicking "Step Over" 120312+ times.
+    1. [Purple] Mute Breakpoints: prevents code from stopping at any break points. This is useful when you have breakpoints in frequently used functions and want to "Step Over" a bunch of code without stopping on break points.
+    1. [Pink] Show Execution Point: if you get lost scrolling through other sections of code and forget where the current debugger is stopped at, this brings you back to where the debugger is
     
 
 
