@@ -88,11 +88,11 @@ Your task is to debug the issue with the code, fix the code, and pass the test!
     1. [Purple] Mute Breakpoints: prevents code from stopping at any break points. This is useful when you have breakpoints in frequently used functions and want to "Step Over" a bunch of code without stopping on break points.
     1. [Pink] Show Execution Point: if you get lost scrolling through other sections of code and forget where the current debugger is stopped at, this brings you back to where the debugger is
     
-## TicTacToeBug2
+## Q2: TicTacToeBug2
 
 If you're done move on to `TicTacToeBug2` which passes the current test but will fail a new integration test in `TicTacToeBoardTest`. Note that this one passes all unit tests, but the unit tests here missed something which is affecting the integration test. One debugging idea is to make the unit tests more robust to catch the bug, but in my personal opinion debugging the integration test is far easier.
 
-## UltTicTacToeBug1
+## Q3: UltTicTacToeBug1
 
 If you're done move on to `UltTicTacToeBug1` which passes  `TicTacToeBoardTest` but will fail a test in `UltBoardTest`.
 
