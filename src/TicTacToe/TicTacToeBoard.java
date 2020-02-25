@@ -4,7 +4,7 @@ public class TicTacToeBoard {
     public static final int X = 1;
     public static final int O = 2;
 
-    // used for checking winning directions
+    // used for checking winning directions: ie. vertical, horizontal, diagonal
     public static final Pos[] dirs = {new Pos(1, 0), new Pos(1, 1), new Pos(0, 1)};
 
     private int width, height; //the board will be width x height in dimensions
