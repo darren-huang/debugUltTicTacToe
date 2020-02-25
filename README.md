@@ -6,17 +6,17 @@ If you finish debugging the TicTacToe bugs give debugging our Ultimate TicTacToe
 This is a debugging project meaning, on the git repository I've added different git branches (which you can think of as versions of the code) with bugs added in. Follow the commands to get the bugged versions of the code into your local computer and try debugging them with Intellij!
 
 ## Getting Started
-1\. clone & enter this repository first!
+1\. clone & enter this repository first! run:
 ```
 git clone https://github.com/darren-huang/debugUltTicTacToe.git
 cd debugUltTicTacToe
 ```
-2\. now pull the following branches into your repository
+2\. now pull the following branches into your repository. run:
 ```
 git checkout --track origin/UltTicTacToeBug1
 git checkout --track origin/TicTacToeBug1
 ```
-3\. check you are on the `TicTacToeBug1` branch
+3\. check you are on the `TicTacToeBug1` branch. run:
 ```
 git status
 ```
@@ -48,16 +48,21 @@ Here is a quick explanation of what we just did: Every time we click the "►" b
 By going through the steps we did to make a new JUnit Run Configuration, Intellij knows to run all the tests in that file and format the JUnit test output.
 
 ### Start Debugging!
-Your task is to debug the issue with the code, fix the code, and pass the test! Quick info about the project:
-- The bug is in `TicTacToeBoard.java`, this is where most of the board logic is
+Your task is to debug the issue with the code, fix the code, and pass the test! 
+
+#### Quick info about the project:
+- The bug is in `TicTacToeBoard.java`, this is where all of the board logic is
     - the most complex function is the "checkWin". This [design document](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing) has info on how it works.
 - `TicTacToeBoardTest.java` contains the unit and integration tests. `makeMove()` Test is the integration test.
-    - while these unit tests are decent, you should **never** assume a unit test passing implies the function it is testing is perfect
+    - while these unit tests are decent, you should **never** assume a unit test passing implies the function is bug-free
+- `TicTacToeGame.java` adds some game logic forcing players to switch off turns and ending the game once someone wins (there shouldn't be any bugs here)
+    - to play 3 x 3 version of tic tac toe run the main method of this file.
 
-1. First step is to understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in real projects you are debugging code you wrote and yourself, and luckily again this TicTacToe is relatively simple. Here are some steps to get acquinted in this project.
+#### Recommended Debugging Steps
+1. First step is to understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in real projects you are debugging code you wrote and yourself, and luckily again this TicTacToe project isn't too complex. Here are some steps to get acquainted in this project.
     1. Use the ["design document" on this project](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing)
        in order to get a better idea of what the code is doing.
-    1. It is best to scroll through the code on Intellij and read the comments above each function
+    1. In IntelliJ use `Ctrl Shift -`/`Cmd Shift -` to minimize all the code bodies to just see method signatures and associated comments. Unminimize stuff with `Ctrl Shift +`/`Cmd Shift +`. 
 
 
 
