@@ -11,12 +11,12 @@ public class Pos {
     }
 
     //non-destructive
-    public Pos addWith(Pos other) {
+    public Pos plus(Pos other) {
         return new Pos(this.x + other.x, this.y + other.y);
     }
 
     //non-destructive
-    public Pos mulWith(int i) {
+    public Pos times(int i) {
         return new Pos(this.x * i, this.y * i);
     }
 

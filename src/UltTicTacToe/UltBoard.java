@@ -150,22 +150,22 @@ public class UltBoard {
         for (Pos dir: dirs) {
             // check moves in positive direction
             int streakCount = 1;
-            Pos globalPtr1 = globalPos.addWith(dir);
+            Pos globalPtr1 = globalPos.plus(dir);
             while (validPos(globalPtr1) && getBoard(globalPtr1).getWinner() == player) {
                 streakCount += 1;
-                globalPtr1 = globalPtr1.addWith(dir);
+                globalPtr1 = globalPtr1.plus(dir);
             }
             // check moves in negative direction
-            Pos globalPtr2 = globalPos.addWith(dir.mulWith(-1));
+            Pos globalPtr2 = globalPos.plus(dir.times(-1));
             while (validPos(globalPtr2) && getBoard(globalPtr2).getWinner() == player) {
                 streakCount += 1;
-                globalPtr2 = globalPtr2.addWith(dir.mulWith(-1));
+                globalPtr2 = globalPtr2.plus(dir.times(-1));
             }
             // check if we have enough of a win streak
             if (streakCount >= this.n) {
                 this.win = true;
                 this.winner = player;
-                this.winningGlobalEndpoints = new Pos[]{globalPtr1.addWith(dir.mulWith(-1)), globalPtr2.addWith(dir)};
+                this.winningGlobalEndpoints = new Pos[]{globalPtr1.plus(dir.times(-1)), globalPtr2.plus(dir)};
                 return win;
             }
         }
