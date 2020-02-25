@@ -182,6 +182,7 @@ public class TicTacToeBoard {
     }
 
     /** -----------------------------------      "GUI" Function       --------------------------------------------------
+     * THIS IS A HELPER FUNCTION, usually use System.out.println(board.displayBoardString()) to print the board
      * Converts the board into a long string. This returns a list of Strings, each string corresponds to one row of the
      * board*/
     public String[] displayBoardStringList(boolean showNum) {
@@ -220,7 +221,8 @@ public class TicTacToeBoard {
     }
 
     /** -----------------------------------      "GUI" Function       --------------------------------------------------
-     * Converts the board into a long string.*/
+     * Converts the board into a long string.
+     * use System.out.println(board.displayBoardString()) to print the board*/
     public String displayBoardString() {
         String displayString = "";
         String[] listStrings = displayBoardStringList(true);
