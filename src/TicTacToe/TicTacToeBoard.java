@@ -96,6 +96,12 @@ public class TicTacToeBoard {
 
     // check if the latest move (given by "move") causes a win || assumes win == false
     boolean checkWin(Pos move) {
+        /* TODO: something is up with this function!
+                    Try read & answering the following TODOs in order ie. [1.] then [2.] then [3.]s... etc.
+                    You can fix the test by editing just 1 line! (there are multiple ways of doing this too tho)
+                    Design Doc: https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing
+        */
+
         // get player to check win for
         int player = get(move);
 
@@ -103,9 +109,9 @@ public class TicTacToeBoard {
         if (player != TicTacToeBoard.X && player != TicTacToeBoard.O) {
             return false;
         }
-        for (Pos dir: dirs) { // TODO: what is dir and what is dirs?
+        for (Pos dir: dirs) { // TODO: [3.] what is dir and what is dirs?
             // check moves in positive direction
-            int streakCount = 0; // TODO: what is streakCount? What is it used for?
+            int streakCount = 0; // TODO: [3.] what is streakCount? What is it used for? When is it updated?
             Pos pointer1 = move.plus(dir);
             while (validPos(pointer1) && get(pointer1) == player) {
                 streakCount += 1;
@@ -113,20 +119,22 @@ public class TicTacToeBoard {
             }
             // check moves in negative direction
             Pos pointer2 = move.plus(dir.times(-1));
-            while (validPos(pointer2) && get(pointer2) == player) {
+            while (validPos(pointer2) && get(pointer2) == player) { /* TODO: [3.] why are there 2 while loops?
+                                                                        note: if this is hard to answer see Design Doc*/
                 streakCount += 1;
                 pointer2 = pointer2.plus(dir.times(-1));
             }
             // check if we have enough of a win streak
-            if (streakCount >= this.n) {
-                this.win = true; /* TODO: our code is failing to set win to true when it should:
+            if (streakCount >= this.n) { /* TODO: [4.] currently what setups for the Board will lead to a win?
+                                                      why is that the case & how do we fix that?*/
+                this.win = true; /* TODO: [2.] our code is failing to set win to true when it should:
                                            what condition must be met for us to set this.win=true?*/
                 this.winner = player;
                 this.winningEndpoints = new Pos[]{pointer1.plus(dir.times(-1)), pointer2.plus(dir)};
                 return win;
             }
         }
-        return win;
+        return win; // TODO: [1.] supposed to return True, meaning win should be true at some point
     }
 
     /** see other "makeMove" */
