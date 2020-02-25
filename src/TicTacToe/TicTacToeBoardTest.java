@@ -74,7 +74,7 @@ public class TicTacToeBoardTest {
     @Test
     public void checkWin() {
         // horizontal
-        for (int i = 0; i < 3; i ++) {
+        for (int i = 0; i < 3; i++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
             m.set(0, 0, player1);
@@ -82,18 +82,18 @@ public class TicTacToeBoardTest {
             m.set(1, 0, player1);
             Assert.assertFalse(m.checkWin(new Pos(1, 0))); // no win
             m.set(2, 0, player1);
-            Assert.assertTrue(m.checkWin(new Pos(i, 0)));
+            Assert.assertTrue(m.checkWin(new Pos(i, 0))); // should result in a win
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
             // end points check
             Pos[] endPts = m.getWinningEndpoints();
-            Pos left = new Pos(0,0);
-            Pos right = new Pos(2,0);
+            Pos left = new Pos(0, 0);
+            Pos right = new Pos(2, 0);
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
         // vertical
-        for (int i = 0; i < 3; i ++) {
+        for (int i = 0; i < 3; i++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
             m.set(0, 0, player1);
@@ -106,13 +106,13 @@ public class TicTacToeBoardTest {
             Assert.assertEquals(m.getWinner(), player1); // winner variable
             // end points check
             Pos[] endPts = m.getWinningEndpoints();
-            Pos left = new Pos(0,0);
-            Pos right = new Pos(0,2);
+            Pos left = new Pos(0, 0);
+            Pos right = new Pos(0, 2);
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
         // diagonal
-        for (int i = 0; i < 3; i ++) {
+        for (int i = 0; i < 3; i++) {
             TicTacToeBoard m = new TicTacToeBoard(3, 3, 3);
             int player1 = 1;
             m.set(0, 0, player1);
@@ -120,13 +120,13 @@ public class TicTacToeBoardTest {
             m.set(1, 1, player1);
             Assert.assertFalse(m.checkWin(new Pos(1, 1))); // no win
             m.set(2, 2, player1);
-            Assert.assertTrue(m.checkWin(new Pos(i, i)));
+            Assert.assertTrue(m.checkWin(new Pos(i, i))); // should result in a win
             Assert.assertTrue(m.isWin()); // win variable
             Assert.assertEquals(m.getWinner(), player1); // winner variable
             // end points check
             Pos[] endPts = m.getWinningEndpoints();
-            Pos left = new Pos(0,0);
-            Pos right = new Pos(2,2);
+            Pos left = new Pos(0, 0);
+            Pos right = new Pos(2, 2);
             Assert.assertTrue(endPts[0].equals(left) || endPts[1].equals(left));
             Assert.assertTrue(endPts[0].equals(right) || endPts[1].equals(right));
         }
