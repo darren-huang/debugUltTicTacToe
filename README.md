@@ -63,13 +63,20 @@ Your task is to debug the issue with the code, fix the code, and pass the test!
     1. Use the ["design document" on this project](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing)
        in order to get a better idea of what the code is doing.
 1. Dive into the code on IntelliJ. Use some of these IntelliJ features to help you navigate/explore the code:
-    1. In IntelliJ use `Cmd Shift -` to minimize all the code bodies to just see method signatures and associated comments. Expand the minimized stuff with `Cmd Shift +`. Windows users replace `Cmd` with `Ctrl` . This is called Code Folding if you wanna google extra IntelliJ commands for it.
+    1. **`Cmd Shift -`** will minimize all the code bodies to just see method signatures and associated comments. 
+        1. Windows users replace `Cmd` with `Ctrl`.
+        1. Expand the minimized stuff with `Cmd Shift +`. 
         1. to expand only the method your cursor is on, use `Cmd Opt +`, Windows `Ctrl Alt +`
-    1. If you see a class/function/variable/ you don't recognize or are confused by hold `Cmd` and click the name (windows ppl use `Ctrl`). This moves you to the location the variable is defined where you can look for comments about why it is being made.
-    1. If you want to see where that class/function/variable was used in the code, right click it and select `Find Usages` (if you are already at the class/function/variable, a `Cmd` or `Ctrl` click will also display the usage locations)
-    1. If you want to go back to your last cursor position in the project press `Cmd Opt left` to go to the next most recent cursor position press `Cmd Opt right`
+        1. This is called Code Folding if you wanna google extra IntelliJ commands for it.
+    1. **hold `Cmd` and click** the name of class/function/variable to move to the location in the code where it is defined
+        1. windows ppl use `Ctrl`)
+        1. there are usually comments near where the class/function/variable was defined that say what it is used for
+    1. **right click and select `Find Usages`** on any class/function/variable to see where it is used in the code 
+        1. if you are already at the class/function/variable, a `Cmd` or `Ctrl` click will also display the usage locations
+    1. `Cmd Opt left` will bring you back to your last cursor position in the project 
+        1. `Cmd Opt right` will bring you to the next most recent cursor position
         1. If you `Cmd` or `Ctrl` clicked a bunch and got lost on where you were originally, use this command to get back on track 
-        1. windows is `Ctrl Alt left` and `Ctrl Alt right`, **WARNING:** if this messes up your display fix with `Ctrl Alt up`, follow [these instructions](https://superuser.com/questions/373832/disable-alt-arrow-display-flip-keyboard-shortcut) to prevent the command from messing up your display
+        1. for Windows users this is `Ctrl Alt left` and `Ctrl Alt right`, **WARNING:** if this messes up your display fix with `Ctrl Alt up`, follow [these instructions](https://superuser.com/questions/373832/disable-alt-arrow-display-flip-keyboard-shortcut) to prevent the command from messing up your display
     
 1. Using the Debugger! This helps you by walking through the key parts of the code where stuff might be going wrong. We're assuming you know how to get into debugging mode by setting break points and hitting the 🐞 debug button at the top. Here are important debugging buttons ![IntelliJ Debugging Window Img](imgs/debugging_intellij.PNG)
     1. [Red] Step Over: Run one line of code in the current function call (equivalent of moving exactly one line down)
