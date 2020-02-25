@@ -32,7 +32,7 @@ We'll be using IntelliJ as our IDE to do our debugging.
 1. Open [IntelliJ IDEA](https://www.jetbrains.com/idea/) (install it if you haven't already done so, here is [CS61b's setup guide](https://inst.eecs.berkeley.edu/~cs61b/sp20/materials/lab/lab2/index.html#table-of-contents))
 1. go to `File > New > Project From Existing Sources...` and select the `debugUltTicTacToe` folder
 1. Press continue through all the menus
-1. go to `File > Project Structure > Libraries` and select the `*jar` files inside `~cs61b-software/lib`
+1. go to `File > Project Structure > Libraries` and select the `*.jar` files inside `~cs61b-software/lib`
     1. if you are in CS61b and don't have the "cs61b-software" folder
        follow the [Berkeley CS61B instructions](https://inst.eecs.berkeley.edu/~cs61b/sp20/materials/lab/lab2/index.html#table-of-contents) on how to get it.
     1. if you aren't in CS61b use this [link](https://drive.google.com/file/d/1eebQO1WoNoEJ4nxxzhxvHP7Tv7q8EB0R/view) to download & extract the "cs61b-software" folder
