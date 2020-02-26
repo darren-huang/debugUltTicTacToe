@@ -63,7 +63,7 @@ Your task is to debug the issue with the code, fix the code, and pass the test!
 The ultimate goal is  to find the bug, fix the bug, and pass the failing test. Here are some starter tasks build up to finding the bug:
 1. The `checkWin` function in `TicTacToeBoard.java` is heavily related to the test that is failing so it is crucial to understand what the following variables/functions are:
     - `Pos move`, `dirs`, `streakCount`, `pointer1` / `pointer2` can be learned from the [design doc](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing)
-    - `get()`, `validPos()`, `Pos.plus()` can be learned from `Cmd + leftClick` or `Ctrl +leftClick` on the function names, the shortcut details are under [Navigating Through Projects with Intellij](#Navigating Through Projects with Intellij)
+    - `get()`, `validPos()`, `Pos.plus()` can be learned from `Cmd + leftClick` or `Ctrl +leftClick` on the function names, the shortcut details are under [Navigating Through Projects with Intellij](#Navigating-Through-Projects-with-Intellij)
 1. Next we want to 
 
 #### Design Doc
