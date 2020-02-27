@@ -64,7 +64,12 @@ The ultimate goal is  to find the bug, fix the bug, and pass the failing test. H
 1. The `checkWin` function in `TicTacToeBoard.java` is heavily related to the test that is failing so it is crucial to understand what the following variables/functions are:
     - `Pos move`, `dirs`, `streakCount`, `pointer1` / `pointer2` can be learned from the [design doc](https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing)
     - `get()`, `validPos()`, `Pos.plus()` can be learned from `Cmd + leftClick` or `Ctrl +leftClick` on the function names, the shortcut details are under [Navigating Through Projects with Intellij](#Navigating-Through-Projects-with-Intellij)
-1. Next we want to 
+1. Next we want to use the debugger to find differences in what we **think** is happening vs. what is **actually** happening
+    1. Run the provided tests files and find which line of the test fails (read the Test failure text)
+    1. for `TicTacToeBug1` and `TicTacToeBug2`, one of the `checkWin` calls fail the test, use the debugger to step into the failing `checkWin` function call! note: the bug could be anywhere, but stepping through this function will reveal a lot about what is going wrong
+    1. See the [Using the Debugger!](#Using-the-Debugger!) section for how to use the debugger
+1. Go for it!
+1. When you find and fix the bug (ie. you should pass the test) move onto [Q2: TicTacToeBug2](#Q2:-TicTacToeBug2)
 
 #### Design Doc
 Understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in 61b projects you are debugging code you mostly wrote yourself, and luckily again this TicTacToe project isn't too complex. Here are some steps to get acquainted in this project.
@@ -90,7 +95,7 @@ Dive into the code on IntelliJ. Use some of these IntelliJ features to help you 
     1. for Windows users this is `Ctrl Alt left` and `Ctrl Alt right`, **WARNING:** if this messes up your display fix with `Ctrl Alt up`, follow [these instructions](https://superuser.com/questions/373832/disable-alt-arrow-display-flip-keyboard-shortcut) to prevent the command from messing up your display
     
 #### Using the Debugger! 
-This helps you by walking through the key parts of the code where stuff might be going wrong. We're assuming you know how to get into debugging mode by setting break points and hitting the 🐞 debug button at the top. Here are some more important debugging buttons: ![IntelliJ Debugging Window Img](imgs/debugging_intellij.PNG)
+This helps you by walking through the key parts of the code where stuff might be going wrong. We're assuming you already know how to get into debugging mode by setting break points and hitting the 🐞 debug button at the top. Here are some more important debugging buttons: ![IntelliJ Debugging Window Img](imgs/debugging_intellij.PNG)
 1. [Red] Step Over: Run one line of code in the current function call (equivalent of moving exactly one line down)
 1. [Yellow] Step Into: Go to the first line of the function that is being called (ie. if currently on a line `student.debug("tictactoe")` it will go to the first line of the `debug` function in the `student`'s class) 
     1. If there are multiple functions to step into, you can left click which one you want to step into. (ie. if running `student.debug(project.getName())` click the [Yellow] button and then left click either `debug` or `getName`)
