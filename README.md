@@ -67,9 +67,9 @@ The ultimate goal is  to find the bug, fix the bug, and pass the failing test. H
 1. Next we want to use the debugger to find differences in what we **think** is happening vs. what is **actually** happening
     1. Run the provided tests files and find which line of the test fails (read the Test failure text)
     1. for `TicTacToeBug1` and `TicTacToeBug2`, one of the `checkWin` calls fail the test, use the debugger to step into the failing `checkWin` function call! note: the bug could be anywhere, but stepping through this function will reveal a lot about what is going wrong
-    1. See the [Using the Debugger!](#Using-the-Debugger!) section for how to use the debugger
+    1. See the [Using the Debugger!](#Using-the-Debugger) section for how to use the debugger
 1. Go for it!
-1. When you find and fix the bug (ie. you should pass the test) move onto [Q2: TicTacToeBug2](#Q2\:-TicTacToeBug2)
+1. When you find and fix the bug (ie. you should pass the test) move onto [Q2: TicTacToeBug2](#Q2-TicTacToeBug2)
 
 #### Design Doc
 Understand how the code works. Without a semi-decent understanding of how the code works, debugging can be almost impossible. Luckily in 61b projects you are debugging code you mostly wrote yourself, and luckily again this TicTacToe project isn't too complex. Here are some steps to get acquainted in this project.
