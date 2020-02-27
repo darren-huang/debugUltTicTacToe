@@ -109,6 +109,6 @@ public class UltTicTacToeGame {
     }
 
     public static void main(String[] args) throws IOException {
-        interactiveGame(2, 2, 2);
+        interactiveGame(3, 3, 3);
     }
 }
