@@ -77,7 +77,8 @@ public class UltBoard {
     }
 
     /** Get Methods:
-    *   returns the value stored at a given global and local position
+    *   returns the player stored at a given global and local position (see the comment directly above the constructor
+     *                                                                 for an explanation of global and local positions)
     * */
     int get(int gx, int gy, int lx, int ly) {
         return boards[gx][gy].get(lx, ly);
