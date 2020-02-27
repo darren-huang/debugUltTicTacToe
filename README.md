@@ -113,6 +113,8 @@ Git add & commit your code. To switch to `TicTacToeBug2` run:
 git checkout TicTacToeBug2
 ```
 
+See the tasks in [Q1: TicTacToeBug1](#Q1-TicTacToeBug1) for guidance on how to go about debugging this issue (you should still be looking at the `checkWin` function)
+
 ## Q3: UltTicTacToeBug1
 
 If you're done move on to `UltTicTacToeBug1` which passes  `TicTacToeBoardTest` but will fail a test in `UltBoardTest`.
