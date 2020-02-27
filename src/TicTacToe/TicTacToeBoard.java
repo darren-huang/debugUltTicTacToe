@@ -101,6 +101,7 @@ public class TicTacToeBoard {
     // check if the latest move (given by "move") causes a win || assumes win == false
     boolean checkWin(Pos move) {
         /* TODO: something is up with this function!
+                    The "TODOs" in this function give hints about how to debug this function
                     Try read & answering the following TODOs in order ie. [1.] then [2.] then [3.]s... etc.
                     You can fix the test by editing just 1 line! (there are multiple ways of doing this too tho)
                     Design Doc: https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing
