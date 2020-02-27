@@ -1,6 +1,9 @@
 package TicTacToe;
 
 public class TicTacToeBoard {
+    /** Player values, each board position should either be 0 (no player), 1 (player X), 2 (player O)
+      Board begins with all 0's and then will write in 1's and 2's as ghe game goes.
+      Use TicTacToeBoard.X to get player numbers (don't just write 1) so the code is more readable */
     public static final int X = 1;
     public static final int O = 2;
 
@@ -56,7 +59,8 @@ public class TicTacToeBoard {
     }
 
     /** Get Methods:
-     *   returns the value stored at a given global and local position
+     *   returns which player is at the given x and y positions,
+     *       if neither player X or O has played at x,y then the value 0 will be returned
      * */
     int get(int x, int y){
         return get(new Pos(x, y));
@@ -67,7 +71,7 @@ public class TicTacToeBoard {
     }
 
     /** Set Methods:
-     *   directly changes the value stored at a given global and local position
+     *   directly changes the player stored at a given x,y position on the board
      *   NOTE: this does NOT change any win values (ie. doesn't update win states)
      * */
     void set(int x, int y, int player){
@@ -105,7 +109,7 @@ public class TicTacToeBoard {
         // get player to check win for
         int player = get(move);
 
-        // check valid player win (if no winner
+        // check that the player is either player X or player O
         if (player != TicTacToeBoard.X && player != TicTacToeBoard.O) {
             return false;
         }
