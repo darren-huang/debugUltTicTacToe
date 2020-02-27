@@ -106,11 +106,21 @@ This helps you by walking through the key parts of the code where stuff might be
     
 ## Q2: TicTacToeBug2
 
-If you're done move on to `TicTacToeBug2` which passes the current test but will fail a new integration test in `TicTacToeBoardTest`. Note that this one passes all unit tests, but the unit tests here missed something which is affecting the integration test. One debugging idea is to make the unit tests more robust to catch the bug, but in my personal opinion debugging the integration test is far easier.
+If you're done move on to `TicTacToeBug2` which passes the `checkWin` test but will fail a new integration test in `TicTacToeBoardTest`. Note that this one passes all unit tests, but the unit tests here missed something which is affecting the integration test. One debugging idea is to make the unit tests more robust to catch the bug, but in my personal opinion debugging the integration test is far easier.
+
+Git add & commit your code. To switch to `TicTacToeBug2` run:
+```
+git checkout TicTacToeBug2
+```
 
 ## Q3: UltTicTacToeBug1
 
 If you're done move on to `UltTicTacToeBug1` which passes  `TicTacToeBoardTest` but will fail a test in `UltBoardTest`.
+
+Git add & commit your code. To switch to `UltTicTacToeBug1` run:
+```
+git checkout UltTicTacToeBug1
+```
 
 ## Switching between problems
 currently there are 3 different bugged branches of the code. One is named UltTicTacToeBug1 and the other two are named TicTacToeBug1 & TicTacToeBug2
