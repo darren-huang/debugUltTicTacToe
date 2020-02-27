@@ -102,6 +102,8 @@ public class TicTacToeBoard {
     boolean checkWin(Pos move) {
         /* TODO: something is up with this function!
                     The "TODOs" in this function give hints about how to debug this function
+                           The "TODOs" DON't mean you are supposed to fix/edit the line they are on, just that you are
+                           supposed to inspect the code on that line & read the hint
                     Try read & answering the following TODOs in order ie. [1.] then [2.] then [3.]s... etc.
                     You can fix the test by editing just 1 line! (there are multiple ways of doing this too tho)
                     Design Doc: https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing
