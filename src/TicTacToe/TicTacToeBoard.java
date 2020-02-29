@@ -98,10 +98,10 @@ public class TicTacToeBoard {
         return validPos(pos) && get(pos) == 0; // also needs space unoccupied
     }
 
-    // check if the latest move (given by "move") causes a win || assumes win == false
-    boolean checkWin(Pos move) {
+    // check if the latest move (given by "currentPosition") causes a win || assumes win == false
+    boolean checkWin(Pos currentPosition) {
         // get player to check win for
-        int player = get(move);
+        int player = get(currentPosition);
 
         // check that the player is either player X or player O
         if (player != TicTacToeBoard.X && player != TicTacToeBoard.O) {
@@ -110,13 +110,13 @@ public class TicTacToeBoard {
         for (Pos dir: dirs) {
             // check moves in positive direction
             int streakCount = 1; // streakCount is used to count how many pieces in a row we see
-            Pos pointer1 = move.plus(dir);
+            Pos pointer1 = currentPosition.plus(dir);
             while (validPos(pointer1) && get(pointer1) == player) {
                 streakCount += 1;
                 pointer1 = pointer1.plus(dir);
             }
             // check moves in negative direction
-            Pos pointer2 = move.plus(dir.times(-1));
+            Pos pointer2 = currentPosition.plus(dir.times(-1));
             while (validPos(pointer2) && get(pointer2) == player) {
                 streakCount += 1;
                 pointer2 = pointer2.plus(dir.times(-1));
