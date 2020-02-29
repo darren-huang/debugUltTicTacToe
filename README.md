@@ -6,18 +6,23 @@ If you finish debugging the TicTacToe bugs, give debugging our Ultimate TicTacTo
 This is a debugging project meaning, on the git repository I've added different git branches (which you can think of as versions of the code) with bugs added in. Follow the commands to get the bugged versions of the code into your local computer and try debugging them with Intellij!
 
 ## Getting Started
-1\. clone & enter this repository first! run:
+1\. make sure you are **NOT** in your 61b repo before cloning (recommended to just do this in your default home folder) 
+to navigate to the default home, in terminal run:
+```
+cd ~
+```
+2\. clone & enter this repository first! run:
 ```
 git clone https://github.com/darren-huang/debugUltTicTacToe.git
 cd debugUltTicTacToe
 ```
-2\. now pull the following branches into your repository. run:
+3\. now pull the following branches into your repository. run:
 ```
 git checkout --track origin/UltTicTacToeBug1
 git checkout --track origin/TicTacToeBug2
 git checkout --track origin/TicTacToeBug1
 ```
-3\. check you are on the `TicTacToeBug1` branch. run:
+4\. check you are on the `TicTacToeBug1` branch. run:
 ```
 git status
 ```
