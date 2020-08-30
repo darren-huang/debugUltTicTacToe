@@ -109,6 +109,7 @@ public class TicTacToeBoard {
                     Design Doc: https://docs.google.com/document/d/17cDhZXbFLUugbCaNCjQap4PMKvjLDWDMUUIfgKW-Aqs/edit?usp=sharing
         */
 
+
         // get player to check win for
         int player = get(currentPosition);
 
